@@ -22,8 +22,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  globals: [Globals],
-  collections: [Users, Media, Pages],
+  collections: [Users, Media, Pages, Globals],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

@@ -1,12 +1,21 @@
-import { GlobalConfig } from 'payload/types';
+import { CollectionConfig } from 'payload/types';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 
-export const Globals: GlobalConfig = {
+export const Globals: CollectionConfig = {
   slug: 'globals',
+  admin: {
+    useAsTitle: 'title',
+  },
   access: {
     read: () => true,
   },
   fields: [
+    {
+      name: 'title',
+      type: 'text',
+      required: true,
+      defaultValue: 'Site Settings',
+    },
     {
       name: 'navigation',
       type: 'group',
