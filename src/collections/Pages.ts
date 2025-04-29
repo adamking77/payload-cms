@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload';
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -58,8 +59,29 @@ export const Pages: CollectionConfig = {
         },
         {
           name: 'content',
-          type: 'textarea',
+          type: 'richText',
           required: true,
+          editor: lexicalEditor({
+            features: {
+              bold: true,
+              italic: true,
+              underline: true,
+              strikethrough: true,
+              code: true,
+              headings: {
+                h1: true,
+                h2: true,
+                h3: true,
+              },
+              lists: {
+                ordered: true,
+                unordered: true,
+              },
+              link: true,
+              blockquote: true,
+              upload: true,
+            },
+          }),
         },
         {
           name: 'order',
