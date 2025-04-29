@@ -4,6 +4,10 @@ export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
+    defaultColumns: ['title', 'slug', 'updatedAt'],
+  },
+  access: {
+    read: () => true,
   },
   fields: [
     {
@@ -18,37 +22,67 @@ export const Pages: CollectionConfig = {
       unique: true,
     },
     {
-      name: 'blocks',
-      type: 'blocks',
+      name: 'sections',
+      type: 'array',
       required: true,
-      blocks: [
+      fields: [
         {
-          slug: 'hero',
-          fields: [
-            { name: 'heading', type: 'text', required: true },
-            { name: 'subheading', type: 'text' },
-            { name: 'backgroundImage', type: 'upload', relationTo: 'media' },
+          name: 'sectionType',
+          type: 'select',
+          required: true,
+          options: [
+            {
+              label: 'Hero',
+              value: 'hero',
+            },
+            {
+              label: 'About',
+              value: 'about',
+            },
+            {
+              label: 'Work',
+              value: 'work',
+            },
+            {
+              label: 'Now',
+              value: 'now',
+            },
           ],
         },
         {
-          slug: 'richText',
-          fields: [
-            { name: 'content', type: 'richText', required: true },
-          ],
+          name: 'title',
+          type: 'text',
+          admin: {
+            condition: (data) => data.sectionType !== 'hero',
+          },
         },
         {
-          slug: 'image',
-          fields: [
-            { name: 'image', type: 'upload', relationTo: 'media', required: true },
-            { name: 'caption', type: 'text' },
-          ],
+          name: 'content',
+          type: 'textarea',
+          required: true,
         },
         {
-          slug: 'callToAction',
-          fields: [
-            { name: 'text', type: 'text', required: true },
-            { name: 'url', type: 'text', required: true },
-          ],
+          name: 'order',
+          type: 'number',
+          required: true,
+          defaultValue: 0,
+          admin: {
+            step: 1,
+          },
+        },
+      ],
+    },
+    {
+      name: 'meta',
+      type: 'group',
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
         },
       ],
     },
