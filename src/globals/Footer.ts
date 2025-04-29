@@ -3,9 +3,6 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical';
 
 const Footer: GlobalConfig = {
   slug: 'footer',
-  preview: {
-    url: () => 'https://adamking.me/',
-  },
   fields: [
     {
       name: 'copyright',
@@ -36,7 +33,6 @@ const Footer: GlobalConfig = {
     {
       name: 'additionalContent',
       type: 'richText',
-      editor: lexicalEditor(),
     },
   ],
 };
