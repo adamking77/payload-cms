@@ -2,6 +2,9 @@ import { GlobalConfig } from 'payload';
 
 const Navigation: GlobalConfig = {
   slug: 'navigation',
+  preview: {
+    url: () => 'https://adamking.me/',
+  },
   fields: [
     {
       name: 'showThemeToggle',

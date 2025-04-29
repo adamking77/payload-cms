@@ -7,6 +7,12 @@ export const Pages: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'updatedAt'],
   },
+  preview: {
+    url: ({ document }) => {
+      if (document.slug === '/') return 'https://adamking.me/';
+      return `https://adamking.me/${document.slug}`;
+    },
+  },
   access: {
     read: () => true,
   },
