@@ -63,23 +63,31 @@ export const Pages: CollectionConfig = {
           required: true,
           editor: lexicalEditor({
             features: {
-              bold: true,
-              italic: true,
-              underline: true,
-              strikethrough: true,
-              code: true,
-              headings: {
-                h1: true,
-                h2: true,
-                h3: true,
+              formatting: {
+                alignment: {
+                  center: true,
+                  left: true,
+                  right: true,
+                },
+                marks: ['bold', 'italic', 'underline', 'strikethrough', 'code'],
+              },
+              heading: {
+                enabled: true,
+                levels: [1, 2, 3],
               },
               lists: {
-                ordered: true,
-                unordered: true,
+                enabled: true,
+                types: ['ordered', 'unordered'],
               },
-              link: true,
-              blockquote: true,
-              upload: true,
+              links: {
+                enabled: true,
+              },
+              quotes: {
+                enabled: true,
+              },
+              upload: {
+                enabled: true,
+              },
             },
           }),
         },
