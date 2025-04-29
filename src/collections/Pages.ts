@@ -61,35 +61,7 @@ export const Pages: CollectionConfig = {
           name: 'content',
           type: 'richText',
           required: true,
-          editor: lexicalEditor({
-            features: {
-              formatting: {
-                alignment: {
-                  center: true,
-                  left: true,
-                  right: true,
-                },
-                marks: ['bold', 'italic', 'underline', 'strikethrough', 'code'],
-              },
-              heading: {
-                enabled: true,
-                levels: [1, 2, 3],
-              },
-              lists: {
-                enabled: true,
-                types: ['ordered', 'unordered'],
-              },
-              links: {
-                enabled: true,
-              },
-              quotes: {
-                enabled: true,
-              },
-              upload: {
-                enabled: true,
-              },
-            },
-          }),
+          editor: lexicalEditor(),
         },
         {
           name: 'order',
