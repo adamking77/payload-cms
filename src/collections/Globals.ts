@@ -1,4 +1,4 @@
-import { CollectionConfig } from 'payload/types';
+import { CollectionConfig } from '@payloadcms/next';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 
 export const Globals: CollectionConfig = {
